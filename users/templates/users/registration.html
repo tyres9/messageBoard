@@ -1,0 +1,17 @@
+{% load crispy_forms_tags %}
+<div class="content-section">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            {{ form|crispy }}
+        </fieldset>
+        <div>
+            <button type="submit"> Sign Up </button>
+        </div>
+    </form>
+    <div>
+        <small> 
+            Already Have an Account? <a href="{% url 'login' %}">Sign In</a>
+        </small>
+    </div>
+</div>

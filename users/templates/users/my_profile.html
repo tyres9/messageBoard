@@ -8,21 +8,8 @@
 		<title>Cork board</title>	
 	</head>
 	<body style="background-color: darkgreen;">
-			{% if user.is_authenticated %}
-				<header>
-					<div id="container">
-						<div><h1 style="color: white;text-align:left;padding-left:100px;">Message Board</h1></div>
-						<nav>
-							<ul>
-								<li>{ user.username}</li>
-								<li><a href={% url 'logout'%}>LogOut</a></li>
-							</ul>	
-						</nav>
-					</div>
-				</header>
-			{% else %}
-				<h1 style="color: white;text-align:center;">Message Board</h1>
-			{% endif %}
+		
+			<h1 style="color: white;">Message Board</h1>
 			<div class="center">
 				<div id='frame' >
 				

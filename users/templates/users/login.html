@@ -1,0 +1,29 @@
+
+
+{% load crispy_forms_tags %}
+<div class="content-section">
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form action="" method="POST">
+        
+        {% csrf_token %}
+        <fieldset>
+            <legend>Log In</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div>
+            <button type="submit"> Log In </button>
+        </div>
+    </form>
+    <div>
+        <small> 
+            Need an Account? <a href="{% url 'register' %}">Sign Up Now</a><br>
+            <a href="{% url 'home' %}">Back To Home</a>
+        </small>
+    </div>
+</div>

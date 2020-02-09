@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView,TemplateView
 from .models import Post
 
 
@@ -8,3 +8,5 @@ class HomePageView(ListView):
     template_name = 'posts/index.html'    
     context_object_name = 'all_posts_list'    #explicit name
 
+
+       
