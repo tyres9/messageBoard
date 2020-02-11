@@ -7,24 +7,15 @@
 		<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
 		<title>Cork board</title>	
 	</head>
-	<body style="background-color: darkgreen;">
-		
-			<h1 style="color: white;">Message Board</h1>
-			<div class="center">
-				<div id='frame' >
-				
-						<button class="addpost"><a href={% url 'login' %} style="text-decoration: none;color:black">Post A Message</a></button>
-					
-					<div class="notediv">
-					{% for post in all_posts_list %}
-					
-					<a class="note sticky1">
-						<div class='pin'></div>
-						<div class='text'>{{ post.text }}</div>
-					</a>
-					{% endfor %}
-					</div>
-				</div>
-		</div>
+	<body>
+			<h1>{{user.username}} Message List</h1>
+			<div>
+				<nav>
+					<ul>
+						<li><a style="text-decoration: none" href={% url 'home'%}>Home</a></li>
+						<li><a style="text-decoration: none" href={% url 'logout'%}>LogOut</a></li>
+					</ul>	
+				</nav>
+			</div>
 	</body>
 </html>

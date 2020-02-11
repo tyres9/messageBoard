@@ -10,30 +10,37 @@
 	<body style="background-color: darkgreen;">
 			{% if user.is_authenticated %}
 				<header>
-					<div id="container">
-						<div><h1 style="color: white;text-align:left;padding-left:100px;">Message Board</h1></div>
+						<div><h1 style="color: white;float:left;padding-left:100px;margin-top:-10px;">Message Board</h1></div>
+						<div>
 						<nav>
 							<ul>
-								<li>{ user.username}</li>
-								<li><a href={% url 'logout'%}>LogOut</a></li>
+								<li><a style="text-decoration: none;color:white" href={% url 'profile'%}>{{ user.username }}</a></li>
+								<li><a style="text-decoration: none;color:white" href={% url 'logout'%}>LogOut</a></li>
 							</ul>	
 						</nav>
 					</div>
+				
 				</header>
 			{% else %}
 				<h1 style="color: white;text-align:center;">Message Board</h1>
 			{% endif %}
 			<div class="center">
 				<div id='frame' >
-				
+					{% if user.is_authenticated %}
+
+					{% else %}
+
 						<button class="addpost"><a href={% url 'login' %} style="text-decoration: none;color:black">Post A Message</a></button>
-					
+					{% endif %}
 					<div class="notediv">
 					{% for post in all_posts_list %}
 					
 					<a class="note sticky1">
 						<div class='pin'></div>
 						<div class='text'>{{ post.text }}</div>
+						<div class="author">{{ post.author }}</div>
+						<div class="author">{{ post.date_posted|date:"Y/m/d" }}</div>
+						
 					</a>
 					{% endfor %}
 					</div>
