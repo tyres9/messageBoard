@@ -27,21 +27,22 @@
 			<div class="center">
 				<div id='frame' >
 					{% if user.is_authenticated %}
-
+					
+						<button class="addpost"><a href={% url 'post-create' %} style="text-decoration: none;color:black">Post A Message</a></button>
 					{% else %}
-
 						<button class="addpost"><a href={% url 'login' %} style="text-decoration: none;color:black">Post A Message</a></button>
 					{% endif %}
-					<div class="notediv">
-					{% for post in all_posts_list %}
+						<div class="notediv">
+					{% for post in all_objects_list %}
 					
-					<a class="note sticky1">
+					<div class="note sticky1">
 						<div class='pin'></div>
 						<div class='text'>{{ post.text }}</div>
-						<div class="author">{{ post.author }}</div>
+						<br>
+						<div class="author"><a href="{% url "user-posts" post.author.username %}">{{ post.author }}</a></div>
 						<div class="author">{{ post.date_posted|date:"Y/m/d" }}</div>
-						
-					</a>
+					</div>
+				
 					{% endfor %}
 					</div>
 				</div>

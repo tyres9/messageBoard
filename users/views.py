@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect,HttpResponse
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from django.contrib.auth import logout
 
 def register(request):
+    if request.user.is_authenticated:
+        return redirect('logout')
+  
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
