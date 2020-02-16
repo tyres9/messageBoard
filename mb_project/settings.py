@@ -132,3 +132,7 @@ STATICFILES_DIRS =[
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
+
+import django_heroku
+django_heroku.settings(locals())
+
